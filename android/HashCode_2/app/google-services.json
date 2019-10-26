@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "230710492144",
+    "firebase_url": "https://hashcode-2019-30afb.firebaseio.com",
+    "project_id": "hashcode-2019-30afb",
+    "storage_bucket": "hashcode-2019-30afb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:230710492144:android:0a232399f5403d41bebb35",
+        "android_client_info": {
+          "package_name": "com.jnanesh.hashcode_2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "230710492144-a1qonji5d3rjrnbim80tet1opm7kss2k.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.jnanesh.myapplication",
+            "certificate_hash": "c2e3ab683c191370c28d471f7f40bd44e0462800"
+          }
+        },
+        {
+          "client_id": "230710492144-s40csupt66vlen7teas8l96qg1tssuei.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCXCp5t1fjCPGuhoYHciX3lvtoTYXjj0l0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "230710492144-s40csupt66vlen7teas8l96qg1tssuei.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
