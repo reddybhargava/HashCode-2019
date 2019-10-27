@@ -18,6 +18,8 @@ FIRE = db.collection('fire_department')
 HOSPITAL = db.collection('hospital_department')
 POLICE = db.collection('police_department')
 TRAFFIC = db.collection('traffic_department')
+GEOTAG = db.collection('geotags')
+
 
 
 
@@ -39,10 +41,11 @@ TRAFFIC = db.collection('traffic_department')
 # Create a callback on_fire_snapshot function to capture changes on 'FIRE' reports
 def on_fire_snapshot(documents_central, changes, read_time):
     docs = dict()
+    print("\n\nFIRE!!\n\n")
     for doc in documents_central:
         # print(doc.id,doc.to_dict())
         docs[doc.id] =  doc.to_dict()
-        if docs[doc.id]['department'] == 'FIRE':
+        if docs[doc.id]['department'] == 'FIRE' and docs[doc.id]['status'] == 'OPEN':
             FIRE.document(doc.id).set(docs[doc.id])
             HOSPITAL.document(doc.id).set(docs[doc.id])
             POLICE.document(doc.id).set(docs[doc.id])
@@ -106,7 +109,13 @@ def get_central_data():
 
 @app.route('/central/geotag', methods = ['GET'])
 def get_geotag_data():
-    pass
+    documents_geotag = GEOTAG.list_documents()
+
+    docs = dict()
+    for doc in documents_geotag:
+        docs[doc.id] =  doc.get().to_dict()
+    print(docs)
+    return render_template('geotag.html', docs = docs)
 
 @app.route('/central/fire', methods = ['GET'])
 def get_fire_data():
@@ -114,7 +123,13 @@ def get_fire_data():
 
 @app.route('/central/hospital', methods = ['GET'])
 def get_hospital_data():
-    pass
+    documents_hospital = HOSPITAL.list_documents()
+
+    docs = dict()
+    for doc in documents_hospital:
+        docs[doc.id] =  doc.get().to_dict()
+    
+    return render_template('hospital.html', docs = docs)
 
 if __name__ == "__main__":
     app.run(debug = True)

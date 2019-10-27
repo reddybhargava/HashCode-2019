@@ -7,12 +7,37 @@
     <title>Home Page</title>
 </head>
 <body>
-    
-     <ol>
-     {%for id in docs%} 
-  
-        <li>{{id, docs[id]['timestamp'].strftime('%Y-%m-%d %H:%M:%S')}}</li> 
-    {%endfor%} 
-    </ol>
+    <table style="width:100%">
+        <thead>
+            <!-- <tr>
+
+            </tr> -->
+            <td>TIME-STAMP</td>
+            <td>PLACE</td>
+            <td>DEPARTMENT</td>
+            <td>LOCATION</td>
+            <td>STATUS</td>
+        </thead>
+        <tbody>
+            <tr>
+                <td>-----------------------------------------</td>
+                <td>-----------------------------------------</td>
+                <td>-------------------------------</td>
+                <td>-----------------------------------------</td>
+                <td>-------------------------------</td>
+
+            </tr>
+            {%for id in docs%} 
+                <tr>
+                    <td> {{docs[id]['timestamp'].strftime('%Y-%m-%d %H:%M:%S')}} </td>
+                    <td> {{docs[id]['place']}} </td>  
+                    <td> {{docs[id]['department']}} </td>  
+                    
+                    <td> {{"{0:.4f}N, {1:.4f}E".format(docs[id]['location'].latitude,docs[id]['location'].longitude)}} </td>  
+                    <td> {{docs[id]['status']}} </td>  
+                </tr>
+            {%endfor%} 
+        </tbody>
+    </table>
 </body>
 </html>

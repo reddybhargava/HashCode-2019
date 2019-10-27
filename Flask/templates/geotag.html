@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>BBMP Department</title>
+</head>
+<body>
+    <table style="width:100%">
+            <thead>
+                <!-- <th>TIME-STAMP</th> -->
+                <th>PLACE</th>
+                <!-- <th>DEPARTMENT</th> -->
+                <th>LOCATION</th>
+                <th>STATUS</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <!-- <td>-----------------------------------------</td> -->
+                    <td>-----------------------------------------</td>
+                    <!-- <td>-------------------------------</td> -->
+                    <td>-----------------------------------------</td>
+                    <td>-------------------------------</td>
+    
+                </tr>
+                {% for id in docs %} 
+                 <!-- {% if docs[id]['status'] == 'OPEN' %} -->
+                    <tr>
+                        <td>{{id}}</td>
+                        <!-- <td> {{docs[id]['timestamp'].strftime('%Y-%m-%d %H:%M:%S')}} </td> -->
+                        <td> {{docs[id]['name']}} </td>  
+                        <!-- <td> {{docs[id]['department']}} </td>   -->
+                        
+                        <td> {{"{0:.4f}N, {1:.4f}E".format(docs[id]['location'].latitude,docs[id]['location'].longitude)}} </td>  
+                        <!-- <td> {{docs[id]['status']}} </td>   -->
+                    </tr>
+                 <!-- {% endif %} -->
+                {%endfor%} 
+            </tbody>
+    </table>
+</body>
+</html>
